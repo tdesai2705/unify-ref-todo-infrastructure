@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  namespace: dev-todo-app
+data:
+  BACKEND_API_URL: "http://backend-service:5000/api"
+  SECRET_KEY: "dev-secret-key-replace-in-production"
+  FEATURE_DUE_DATE: "false"
+  FEATURE_DARK_MODE: "false"

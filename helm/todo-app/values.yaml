@@ -1,0 +1,77 @@
+# Default values for todo-app Helm chart
+
+environment: dev
+
+backend:
+  replicaCount: 2
+  image:
+    repository: tejasdesai27/todo-backend
+    tag: latest
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+  env:
+    FLASK_ENV: development
+    SECRET_KEY: dev-secret-key-replace-in-production
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: tejasdesai27/todo-frontend
+    tag: latest
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  env:
+    SECRET_KEY: dev-secret-key-replace-in-production
+    FEATURE_DUE_DATE: "false"
+    FEATURE_DARK_MODE: "false"
+
+postgres:
+  replicaCount: 1
+  image:
+    repository: postgres
+    tag: 15-alpine
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  persistence:
+    size: 10Gi
+  env:
+    POSTGRES_USER: todouser
+    POSTGRES_PASSWORD: todopass
+    POSTGRES_DB: todos
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  hosts:
+    - host: dev-todo.cloudbees-unify.example.com
+      paths:
+        - path: /api
+          pathType: Prefix
+          service: backend
+        - path: /
+          pathType: Prefix
+          service: frontend
+  tls:
+    - secretName: todo-app-tls
+      hosts:
+        - dev-todo.cloudbees-unify.example.com

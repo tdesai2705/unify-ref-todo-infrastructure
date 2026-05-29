@@ -1,0 +1,15 @@
+apiVersion: v2
+name: todo-app
+description: CloudBees Unify Reference - 2-Tier Todo Application
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - cloudbees
+  - unify
+  - todo
+  - reference-architecture
+maintainers:
+  - name: Tejas Desai
+    email: tdesai@cloudbees.com
+  - name: CloudBees Unify Team

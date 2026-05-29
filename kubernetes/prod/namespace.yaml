@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod-todo-app
+  labels:
+    environment: production
+    app: todo-app
+    project: cloudbees-unify-reference
