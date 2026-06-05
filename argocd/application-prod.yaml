@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-app-prod
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  source:
+    # Git repository containing Helm chart
+    repoURL: https://github.com/tdesai2705/unify-ref-todo-infrastructure.git
+    targetRevision: main
+    path: helm/todo-app
+    helm:
+      valueFiles:
+        - values.yaml  # Base values
+        - ../../kubernetes/prod/backend-values.yaml
+        - ../../kubernetes/prod/frontend-values.yaml
+        - ../../kubernetes/prod/database-values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-todo-app
+
+  syncPolicy:
+    # MANUAL sync for production - no automated deployment
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m

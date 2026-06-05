@@ -1,0 +1,21 @@
+# Frontend values for PROD environment
+# Updated manually or via approved pipeline
+
+frontend:
+  replicaCount: 3  # More replicas for prod
+  image:
+    repository: tejasdesai27/todo-frontend
+    tag: main-1  # Will be updated by CI pipeline after approval
+    pullPolicy: IfNotPresent  # Prod uses specific versions
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+  env:
+    SECRET_KEY: prod-secret-key-CHANGEME
+    BACKEND_URL: http://backend:5000
+    FEATURE_DUE_DATE: "true"
+    FEATURE_DARK_MODE: "false"  # Disable experimental features in prod

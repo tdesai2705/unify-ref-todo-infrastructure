@@ -1,0 +1,13 @@
+# Database values for DEV environment
+
+postgres:
+  replicaCount: 1
+  image:
+    repository: postgres
+    tag: 15-alpine
+  persistence:
+    size: 10Gi
+  env:
+    POSTGRES_USER: todouser
+    POSTGRES_PASSWORD: todopass
+    POSTGRES_DB: todos

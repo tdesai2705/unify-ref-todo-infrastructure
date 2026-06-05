@@ -1,0 +1,14 @@
+# Frontend values for DEV environment
+# Updated automatically by CBCI pipeline
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: tejasdesai27/todo-frontend
+    tag: develop-1  # Will be updated by CI pipeline
+    pullPolicy: Always
+  env:
+    SECRET_KEY: dev-secret-key
+    BACKEND_URL: http://backend:5000
+    FEATURE_DUE_DATE: "true"
+    FEATURE_DARK_MODE: "true"
