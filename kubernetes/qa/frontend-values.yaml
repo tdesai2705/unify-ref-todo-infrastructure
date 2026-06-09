@@ -5,7 +5,7 @@ frontend:
   replicaCount: 2
   image:
     repository: tejasdesai27/todo-frontend
-    tag: main-1  # Will be updated by CI pipeline
+    tag: main-2
     pullPolicy: Always
   env:
     SECRET_KEY: qa-secret-key-replace
