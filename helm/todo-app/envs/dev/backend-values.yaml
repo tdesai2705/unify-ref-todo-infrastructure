@@ -5,7 +5,7 @@ backend:
   replicaCount: 2
   image:
     repository: tejasdesai27/todo-backend
-    tag: develop-1  # Will be updated by CI pipeline
+    tag: main-26  # Using latest working image until develop branch pipeline runs
     pullPolicy: Always
   env:
     FLASK_ENV: development
