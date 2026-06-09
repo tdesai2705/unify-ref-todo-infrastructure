@@ -6,7 +6,7 @@ postgres:
   image:
     repository: postgres
     tag: 15-alpine
-  migrationVersion: "init"  # Will be updated by CI pipeline
+  migrationVersion: main-2
   persistence:
     size: 10Gi
   env:
