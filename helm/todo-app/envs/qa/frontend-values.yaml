@@ -1,0 +1,14 @@
+# Frontend values for QA environment
+# Updated automatically by CBCI pipeline
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: tejasdesai27/todo-frontend
+    tag: main-2
+    pullPolicy: Always
+  env:
+    SECRET_KEY: qa-secret-key-replace
+    BACKEND_URL: http://backend:5000
+    FEATURE_DUE_DATE: "true"
+    FEATURE_DARK_MODE: "true"

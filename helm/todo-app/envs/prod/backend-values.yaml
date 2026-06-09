@@ -1,0 +1,20 @@
+# Backend values for PROD environment
+# Updated manually or via approved pipeline
+
+backend:
+  replicaCount: 3  # More replicas for prod
+  image:
+    repository: tejasdesai27/todo-backend
+    tag: main-1  # Will be updated by CI pipeline after approval
+    pullPolicy: IfNotPresent  # Prod uses specific versions
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+  env:
+    FLASK_ENV: production
+    SECRET_KEY: prod-secret-key-CHANGEME
+    DATABASE_URL: postgresql://todouser:PROD_PASSWORD_HERE@postgres:5432/todos

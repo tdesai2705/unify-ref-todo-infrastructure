@@ -15,10 +15,10 @@ spec:
     path: helm/todo-app
     helm:
       valueFiles:
-        - values.yaml  # Base values
-        - ../../kubernetes/qa/backend-values.yaml
-        - ../../kubernetes/qa/frontend-values.yaml
-        - ../../kubernetes/qa/database-values.yaml
+        - values.yaml
+        - envs/qa/backend-values.yaml
+        - envs/qa/frontend-values.yaml
+        - envs/qa/database-values.yaml
 
   destination:
     server: https://kubernetes.default.svc
