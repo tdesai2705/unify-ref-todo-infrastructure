@@ -1,10 +1,12 @@
 # Database values for QA environment
+# migrationVersion updated automatically by CBCI pipeline
 
 postgres:
   replicaCount: 1
   image:
     repository: postgres
     tag: 15-alpine
+  migrationVersion: "init"  # Will be updated by CI pipeline
   persistence:
     size: 10Gi
   env:
