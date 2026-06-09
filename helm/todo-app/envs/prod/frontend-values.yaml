@@ -2,20 +2,20 @@
 # Updated manually or via approved pipeline
 
 frontend:
-  replicaCount: 3  # More replicas for prod
+  replicaCount: 1
   image:
     repository: tejasdesai27/todo-frontend
-    tag: main-1  # Will be updated by CI pipeline after approval
-    pullPolicy: IfNotPresent  # Prod uses specific versions
+    tag: main-2
+    pullPolicy: Always
   resources:
     requests:
-      cpu: 200m
-      memory: 256Mi
+      cpu: 100m
+      memory: 128Mi
     limits:
-      cpu: 1000m
-      memory: 1Gi
+      cpu: 500m
+      memory: 512Mi
   env:
     SECRET_KEY: prod-secret-key-CHANGEME
-    BACKEND_URL: http://backend:5000
+    BACKEND_API_URL: http://backend:5000/api
     FEATURE_DUE_DATE: "true"
     FEATURE_DARK_MODE: "false"  # Disable experimental features in prod

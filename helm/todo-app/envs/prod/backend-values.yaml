@@ -2,18 +2,18 @@
 # Updated manually or via approved pipeline
 
 backend:
-  replicaCount: 3  # More replicas for prod
+  replicaCount: 1
   image:
     repository: tejasdesai27/todo-backend
-    tag: main-1  # Will be updated by CI pipeline after approval
-    pullPolicy: IfNotPresent  # Prod uses specific versions
+    tag: main-26
+    pullPolicy: Always
   resources:
     requests:
-      cpu: 200m
-      memory: 512Mi
+      cpu: 100m
+      memory: 256Mi
     limits:
-      cpu: 2000m
-      memory: 2Gi
+      cpu: 1000m
+      memory: 1Gi
   env:
     FLASK_ENV: production
     SECRET_KEY: prod-secret-key-CHANGEME
