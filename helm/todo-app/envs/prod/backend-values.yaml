@@ -17,4 +17,4 @@ backend:
   env:
     FLASK_ENV: production
     SECRET_KEY: prod-secret-key-CHANGEME
-    DATABASE_URL: postgresql://todouser:PROD_PASSWORD_HERE@postgres:5432/todos
+    DATABASE_URL: postgresql://todouser:todopass@postgres:5432/todos
