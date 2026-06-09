@@ -5,7 +5,7 @@ backend:
   replicaCount: 2
   image:
     repository: tejasdesai27/todo-backend
-    tag: main-1  # Will be updated by CI pipeline
+    tag: main-25
     pullPolicy: Always
   env:
     FLASK_ENV: production
