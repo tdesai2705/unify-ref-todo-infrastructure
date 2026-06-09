@@ -11,5 +11,5 @@ postgres:
     size: 10Gi
   env:
     POSTGRES_USER: todouser
-    POSTGRES_PASSWORD: todopass-qa-replace
+    POSTGRES_PASSWORD: todopass
     POSTGRES_DB: todos

@@ -6,15 +6,8 @@ postgres:
     repository: postgres
     tag: 15-alpine
   persistence:
-    size: 50Gi  # Larger storage for prod
-  resources:
-    requests:
-      cpu: 500m
-      memory: 1Gi
-    limits:
-      cpu: 2000m
-      memory: 2Gi
+    size: 10Gi
   env:
     POSTGRES_USER: todouser
-    POSTGRES_PASSWORD: PROD_PASSWORD_CHANGEME
+    POSTGRES_PASSWORD: todopass
     POSTGRES_DB: todos
