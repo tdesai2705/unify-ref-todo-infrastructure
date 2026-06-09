@@ -9,6 +9,6 @@ frontend:
     pullPolicy: Always
   env:
     SECRET_KEY: qa-secret-key-replace
-    BACKEND_URL: http://backend:5000
+    BACKEND_API_URL: http://backend:5000/api
     FEATURE_DUE_DATE: "true"
     FEATURE_DARK_MODE: "true"
