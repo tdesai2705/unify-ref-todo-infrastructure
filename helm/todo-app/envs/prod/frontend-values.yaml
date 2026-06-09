@@ -16,6 +16,6 @@ frontend:
       memory: 512Mi
   env:
     SECRET_KEY: prod-secret-key-CHANGEME
-    BACKEND_API_URL: http://backend:5000/api
+    BACKEND_API_URL: http://backend:5000
     FEATURE_DUE_DATE: "true"
     FEATURE_DARK_MODE: "false"  # Disable experimental features in prod
