@@ -2,7 +2,7 @@
 # Updated automatically by CBCI pipeline
 
 backend:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: tejasdesai27/todo-backend
     tag: main-26  # Using latest working image until develop branch pipeline runs
