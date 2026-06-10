@@ -18,4 +18,5 @@ frontend:
     SECRET_KEY: prod-secret-key-CHANGEME
     BACKEND_API_URL: http://backend:5000
     FEATURE_DUE_DATE: "true"
-    FEATURE_DARK_MODE: "false"  # Disable experimental features in prod
+    FEATURE_DARK_MODE: "false"
+    CASK_API_KEY: "f479b8e5-6683-4a15-864f-33def5f2c333"

@@ -12,3 +12,4 @@ frontend:
     BACKEND_API_URL: http://backend:5000
     FEATURE_DUE_DATE: "true"
     FEATURE_DARK_MODE: "true"
+    CASK_API_KEY: "716e8e9b-eb22-4df4-aacf-818f035db116"
