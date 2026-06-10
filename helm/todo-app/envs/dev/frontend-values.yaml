@@ -5,7 +5,7 @@ frontend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-frontend
-    tag: develop-5
+    tag: develop-6
     pullPolicy: Always
   env:
     SECRET_KEY: dev-secret-key
