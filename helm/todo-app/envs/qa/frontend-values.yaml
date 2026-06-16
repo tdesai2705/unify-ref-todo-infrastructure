@@ -5,7 +5,7 @@ frontend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-frontend
-    tag: main-10
+    tag: main-13
     pullPolicy: Always
   env:
     SECRET_KEY: qa-secret-key-replace
