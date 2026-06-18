@@ -1,0 +1,29 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: Todo App Release
+
+on:
+  workflow_call:
+    inputs:
+      manifest:
+        type: string
+        required: true
+
+permissions:
+  scm-token-own: read
+  id-token: read
+
+jobs:
+  deploy-qa:
+    uses: ./.cloudbees/workflows/deployer.yaml
+    with:
+      manifest: ${{ inputs.manifest }}
+      environment: qa-todo
+
+  deploy-prod:
+    needs: deploy-qa
+    environment: prod-todo
+    uses: ./.cloudbees/workflows/deployer.yaml
+    with:
+      manifest: ${{ inputs.manifest }}
+      environment: prod-todo
