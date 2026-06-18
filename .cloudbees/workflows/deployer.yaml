@@ -1,0 +1,27 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: deployer
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        required: true
+      manifest:
+        type: string
+        required: true
+
+jobs:
+  unify-ref-todo-backend:
+    if: ${{ fromJSON(inputs.manifest)['unify-ref-todo-backend']['tejasdesai27/todo-backend'].deploy }}
+    uses: tdesai2705/unify-ref-todo-backend/.cloudbees/workflows/deploy.yaml
+    with:
+      artifact-id: ${{ fromJSON(inputs.manifest)['unify-ref-todo-backend']['tejasdesai27/todo-backend'].id }}
+      environment: ${{ inputs.environment }}
+  unify-ref-todo-frontend:
+    if: ${{ fromJSON(inputs.manifest)['unify-ref-todo-frontend']['tejasdesai27/todo-frontend'].deploy }}
+    uses: tdesai2705/unify-ref-todo-frontend/.cloudbees/workflows/deploy.yaml
+    with:
+      artifact-id: ${{ fromJSON(inputs.manifest)['unify-ref-todo-frontend']['tejasdesai27/todo-frontend'].id }}
+      environment: ${{ inputs.environment }}
