@@ -11,3 +11,4 @@ backend:
     FLASK_ENV: production
     SECRET_KEY: qa-secret-key-replace
     DATABASE_URL: postgresql://todouser:todopass@postgres:5432/todos
+    CASK_API_KEY: "0d230090-64e4-45d8-8621-8eaae8d55989"
