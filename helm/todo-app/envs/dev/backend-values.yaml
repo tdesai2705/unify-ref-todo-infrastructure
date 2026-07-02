@@ -5,7 +5,7 @@ backend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-backend
-    tag: subset-demo-bulkops-1
+    tag: subset-demo-bulkops-2
     pullPolicy: Always
   env:
     FLASK_ENV: development
