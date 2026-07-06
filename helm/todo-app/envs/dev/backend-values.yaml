@@ -5,7 +5,7 @@ backend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-backend
-    tag: obs-training-21
+    tag: obs-training-22
     pullPolicy: Always
   env:
     FLASK_ENV: development
