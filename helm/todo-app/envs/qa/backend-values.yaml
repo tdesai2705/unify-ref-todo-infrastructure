@@ -5,7 +5,7 @@ backend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-backend
-    tag: main-73
+    tag: main-74
     pullPolicy: Always
   env:
     FLASK_ENV: production
