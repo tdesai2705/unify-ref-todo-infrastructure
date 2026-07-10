@@ -1,0 +1,51 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: Todo App Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      manifest:
+        type: string
+        required: true
+        description: This is a system-generated parameter and is required for use in application releases. Refer to https://docs.cloudbees.com/docs/cloudbees-platform/latest/applications/releases#manifest for the expected format
+
+permissions:
+  scm-token-own: read
+  id-token: read
+
+metadata:
+  stages/v1alpha1:
+    - name: Deploy to Dev
+      jobs:
+        - dev
+    - name: Deploy to QA
+      jobs:
+        - qa
+    - name: Deploy to Prod
+      jobs:
+        - production
+
+jobs:
+  dev:
+    environment: dev-todo
+    uses: ./.cloudbees/workflows/deployer.yaml
+    with:
+      manifest: ${{ inputs.manifest }}
+      environment: dev
+
+  qa:
+    needs: dev
+    environment: qa-todo
+    uses: ./.cloudbees/workflows/deployer.yaml
+    with:
+      manifest: ${{ inputs.manifest }}
+      environment: qa
+
+  production:
+    needs: qa
+    environment: prod-todo
+    uses: ./.cloudbees/workflows/deployer.yaml
+    with:
+      manifest: ${{ inputs.manifest }}
+      environment: prod
