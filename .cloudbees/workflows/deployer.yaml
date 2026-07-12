@@ -19,9 +19,13 @@ jobs:
     with:
       artifact-id: ${{ fromJSON(inputs.manifest)['unify-ref-todo-backend']['tejasdesai27/todo-backend'].id }}
       environment: ${{ inputs.environment }}
+    secrets: inherit
+    vars: inherit
   unify-ref-todo-frontend:
     if: ${{ fromJSON(inputs.manifest)['unify-ref-todo-frontend']['tejasdesai27/todo-frontend'].deploy }}
     uses: tdesai2705/unify-ref-todo-frontend/.cloudbees/workflows/deploy.yaml
     with:
       artifact-id: ${{ fromJSON(inputs.manifest)['unify-ref-todo-frontend']['tejasdesai27/todo-frontend'].id }}
       environment: ${{ inputs.environment }}
+    secrets: inherit
+    vars: inherit
