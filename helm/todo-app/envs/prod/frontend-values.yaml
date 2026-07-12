@@ -5,7 +5,7 @@ frontend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-frontend
-    tag: main-15
+    tag: 21bc5130-3df8-4c99-8c10-84be2d664fd6
     pullPolicy: Always
   resources:
     requests:
