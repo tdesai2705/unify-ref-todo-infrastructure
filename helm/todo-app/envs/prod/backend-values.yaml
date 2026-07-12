@@ -5,7 +5,7 @@ backend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-backend
-    tag: main-70
+    tag: 89de3ae0-2d31-4060-949f-ade3b8c1d77e
     pullPolicy: Always
   resources:
     requests:
