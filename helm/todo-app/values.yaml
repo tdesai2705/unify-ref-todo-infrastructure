@@ -3,35 +3,35 @@
 environment: dev
 
 backend:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: tejasdesai27/todo-backend
     tag: latest
     pullPolicy: Always
   resources:
     requests:
-      cpu: 100m
-      memory: 256Mi
+      cpu: 20m
+      memory: 128Mi
     limits:
-      cpu: 1000m
-      memory: 1Gi
+      cpu: 500m
+      memory: 512Mi
   env:
     FLASK_ENV: development
     SECRET_KEY: dev-secret-key-replace-in-production
 
 frontend:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: tejasdesai27/todo-frontend
     tag: latest
     pullPolicy: Always
   resources:
     requests:
-      cpu: 100m
-      memory: 128Mi
+      cpu: 20m
+      memory: 96Mi
     limits:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 300m
+      memory: 256Mi
   env:
     SECRET_KEY: dev-secret-key-replace-in-production
     FEATURE_DUE_DATE: "false"
