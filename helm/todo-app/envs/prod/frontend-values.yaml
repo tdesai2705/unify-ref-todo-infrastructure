@@ -5,15 +5,15 @@ frontend:
   replicaCount: 1
   image:
     repository: tejasdesai27/todo-frontend
-    tag: c540aea5-6d59-440a-8f9b-473ba9ec99cd
+    tag: latest
     pullPolicy: Always
   resources:
     requests:
-      cpu: 100m
-      memory: 128Mi
+      cpu: 20m
+      memory: 96Mi
     limits:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 300m
+      memory: 256Mi
   env:
     SECRET_KEY: prod-secret-key-CHANGEME
     BACKEND_API_URL: http://backend:5000
